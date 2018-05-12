@@ -2,7 +2,7 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 1.101.0
+Version: 1.101.1
 Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
@@ -44,4 +44,7 @@ of work time. All commands are extendable by a module API.
 %{_bindir}/%{name}
 
 %changelog
+* Sat May 12 2018 Danila Vershinin <info@getpagespeed.com> 1.101.1-1
+- upstream version auto-updated to 1.101.1
+
 
