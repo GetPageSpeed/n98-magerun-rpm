@@ -12,7 +12,7 @@ Source0: https://files.magerun.net/n98-magerun-%{version}.phar
 
 BuildArch: noarch
 
-Requires:  php(language) >= 5.5
+Requires:  php(language) >= 5.4
 Requires:  php-mbstring
 Requires:  php-openssl
 Requires:  php-xml
