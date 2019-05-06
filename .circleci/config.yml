@@ -66,11 +66,11 @@ workflows:
   build_deploy:
     jobs:
       - "el7"
-      - "el6"
+      #- "el6"
       - deploy:
           requires:
             - "el7"
-            - "el6"
+            #- "el6"
           filters:
             branches:
               only: master      
