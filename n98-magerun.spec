@@ -28,9 +28,8 @@ Requires:  php-xml
 
 %description
 The swiss army knife for Magento developers, sysadmins and devops.
-The tool provides a huge set of well tested command line commands which save hours
-of work time. All commands are extendable by a module API.
-
+The tool provides a huge set of well tested command line commands which 
+save hours of work time. All commands are extendable by a module API.
 
 %prep
 %autosetup
