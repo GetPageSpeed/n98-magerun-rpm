@@ -38,7 +38,7 @@ sed -i 's@- /usr/local/share/n98-magerun/modules@- /usr/share/n98-magerun/module
 
 %build
 ulimit -Sn "$(ulimit -Hn)"
-/bin/phing dist_clean
+/usr/bin/phing dist_clean
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
