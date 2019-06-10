@@ -5,8 +5,8 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 1.102.0
-Release: 2%{?dist}
+Version: 1.103.0
+Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
 License: GPLv2+ and MIT and BSD
@@ -50,6 +50,9 @@ ulimit -Sn "$(ulimit -Hn)"
 %{_bindir}/%{name}
 
 %changelog
+* Mon Jun 10 2019 Danila Vershinin <info@getpagespeed.com> 1.103.0-1
+- upstream version auto-updated to 1.103.0
+
 * Sun May 05 2019 Danila Vershinin <info@getpagespeed.com> 1.102.0-2
 - load modules from /usr/share/n98-magerun/modules in addition to /usr/local/share/...
 - build insted of phar fetch from upstream
