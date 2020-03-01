@@ -5,7 +5,7 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 1.103.1
+Version: 1.103.2
 Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
@@ -50,6 +50,9 @@ ulimit -Sn "$(ulimit -Hn)"
 %{_bindir}/%{name}
 
 %changelog
+* Sun Mar 01 2020 Danila Vershinin <info@getpagespeed.com> 1.103.2-1
+- upstream version auto-updated to 1.103.2
+
 * Sat Jul 20 2019 Danila Vershinin <info@getpagespeed.com> 1.103.1-1
 - upstream version auto-updated to 1.103.1
 
