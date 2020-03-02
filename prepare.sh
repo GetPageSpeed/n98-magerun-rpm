@@ -1,14 +1,23 @@
 #!/bin/bash
 
-if grep -q -i "release 6" /etc/redhat-release; then
+RHEL=$(rpm -E %{rhel})
+
+if [[ ${RHEL} -eq 6 ]]; then
   yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
-  # composer is there for EL6:
+elif [[ ${RHEL} -eq 7 ]]; then
+  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+elif [[ ${RHEL} -eq 8 ]]; then
+  yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+fi
+
+if test -f /usr/bin/dnf; then
+  dnf config-manager --set-enabled remi
+  dnf config-manager --set-enabled remi-php56
+else
+  yum -y install yum-utils
   yum-config-manager --enable remi
+  yum-config-manager --enable remi-php56
 fi
-if grep -q -i "release 7" /etc/redhat-release; then
-  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm yum-utils
-fi
-yum-config-manager --enable remi
-yum-config-manager --enable remi-php56
+
 # php-pear-phing in remi is no good
-yum install --disablerepo=remi* php-pear-phing
+yum -y install --disablerepo=remi* php-pear-phing
