@@ -10,3 +10,5 @@ if grep -q -i "release 7" /etc/redhat-release; then
 fi
 yum-config-manager --enable remi
 yum-config-manager --enable remi-php56
+# php-pear-phing in remi is no good
+yum install --disablerepo=remi* php-pear-phing
