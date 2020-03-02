@@ -38,7 +38,7 @@ sed -i 's@- /usr/local/share/n98-magerun/modules@- /usr/share/n98-magerun/module
 
 %build
 ulimit -Sn "$(ulimit -Hn)"
-/usr/bin/phing dist_clean
+PHP_COMMAND="/usr/bin/php -d phar.readonly=0" /usr/bin/phing dist_clean
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
