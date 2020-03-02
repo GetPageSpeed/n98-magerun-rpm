@@ -14,7 +14,7 @@ URL: https://magerun.net/
 #Source0: https://files.magerun.net/n98-magerun-%{version}.phar
 Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
 
-BuildRequires: php-cli php-pear-phing
+BuildRequires: php-cli php-pear-phing composer
 
 BuildArch: noarch
 

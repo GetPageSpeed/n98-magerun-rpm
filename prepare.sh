@@ -8,4 +8,5 @@ fi
 if grep -q -i "release 7" /etc/redhat-release; then
   yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm yum-utils
 fi
+yum-config-manager --enable remi
 yum-config-manager --enable remi-php56
