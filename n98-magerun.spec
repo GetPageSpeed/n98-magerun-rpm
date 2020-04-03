@@ -5,7 +5,7 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 1.103.2
+Version: 1.103.3
 Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
@@ -50,6 +50,9 @@ PHP_COMMAND="/usr/bin/php -d phar.readonly=0" /usr/bin/phing dist_clean
 %{_bindir}/%{name}
 
 %changelog
+* Fri Apr 03 2020 Danila Vershinin <info@getpagespeed.com> 1.103.3-1
+- upstream version auto-updated to 1.103.3
+
 * Sun Mar 01 2020 Danila Vershinin <info@getpagespeed.com> 1.103.2-1
 - upstream version auto-updated to 1.103.2
 
