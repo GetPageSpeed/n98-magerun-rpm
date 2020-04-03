@@ -9,14 +9,13 @@ if [[ "${RHEL}" -ge "8" ]]; then
   dnf -y install yum-utils
   dnf -y module reset php
   dnf -y module install php:remi-7.2
-  dnf -y install php-pear-phing
 else
   REPO=remi-php56
   yum -y install yum-utils
   yum-config-manager --enable remi
   yum-config-manager --enable ${REPO}
-  # php-pear-phing in remi is no good
-  yum -y install --disablerepo=remi* php-pear-phing
 fi
 
+# php-pear-phing in remi is no good
+yum -y install --disablerepo=remi* php-pear-phing
 
