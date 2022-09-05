@@ -11,7 +11,7 @@ Summary: n98-magerun. The swiss army knife for Magento developers
 
 License: GPLv2+ and MIT and BSD
 URL: https://magerun.net/
-#Source0: https://files.magerun.net/n98-magerun-%{version}.phar
+#Source0: https://files.magerun.net/n98-magerun-%%{version}.phar
 Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
 Source1: https://www.phing.info/get/phing-2.17.4.phar
 
