@@ -18,6 +18,6 @@ else
   yum-config-manager --enable ${REPO}
 fi
 
-# php-pear-phing in remi is no good
-yum -y install --disablerepo=remi* php-pear-phing
+# php-pear-phing in remi is good
+yum -y install php-pear-phing
 
