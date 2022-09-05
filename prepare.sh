@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 RHEL=$(rpm -E %{rhel})
 
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-${RHEL}.rpm
