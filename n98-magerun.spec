@@ -13,8 +13,9 @@ License: GPLv2+ and MIT and BSD
 URL: https://magerun.net/
 #Source0: https://files.magerun.net/n98-magerun-%{version}.phar
 Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
+Source1: https://www.phing.info/get/phing-2.17.4.phar
 
-BuildRequires: php-cli php-pear-phing composer
+BuildRequires: php-cli composer
 
 BuildArch: noarch
 
@@ -33,12 +34,14 @@ save hours of work time. All commands are extendable by a module API.
 
 %prep
 %autosetup
+cp -p %{SOURCE1} ./phing
+chmod +x ./phing
 # load modules from /usr/share/n98-magerun/modules:
 sed -i 's@- /usr/local/share/n98-magerun/modules@- /usr/share/n98-magerun/modules\n    - /usr/local/share/n98-magerun/modules@' config.yaml
 
 %build
 ulimit -Sn "$(ulimit -Hn)"
-PHP_COMMAND="/usr/bin/php -d phar.readonly=0" /usr/bin/phing dist_clean
+PHP_COMMAND="/usr/bin/php -d phar.readonly=0" ./phing dist_clean
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
