@@ -5,7 +5,7 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 2.3.0
+Version: 1.103.3
 Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
