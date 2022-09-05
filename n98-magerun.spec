@@ -15,14 +15,15 @@ URL: https://magerun.net/
 Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
 Source1: https://www.phing.info/get/phing-2.17.4.phar
 
-BuildRequires: php-cli
-
 BuildArch: noarch
 
-Requires:  php(language) >= 5.4
-Requires:  php-mbstring
-Requires:  php-openssl
-Requires:  php-xml
+BuildRequires:  php-cli
+BuildRequires:  php-xml
+
+Requires:       php(language) >= 5.4
+Requires:       php-mbstring
+Requires:       php-openssl
+Requires:       php-xml
 
 # TODO: Get info from phpcompatinfo reports for 2.1.2
 
