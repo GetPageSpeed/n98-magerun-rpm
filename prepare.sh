@@ -12,7 +12,6 @@ if [[ "${RHEL}" -ge "8" ]]; then
 else
   REPO=remi-php56
   yum -y install yum-utils
-  yum-config-manager --enable remi
   yum-config-manager --enable ${REPO}
 fi
 
