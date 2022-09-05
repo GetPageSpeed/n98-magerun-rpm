@@ -15,4 +15,6 @@ else
   yum-config-manager --enable ${REPO}
 fi
 
+yum -y install php-cli
+echo "phar.readonly=0" >> /etc/php.d/zzz.ini
 
