@@ -17,6 +17,8 @@ Source1: https://www.phing.info/get/phing-2.17.4.phar
 
 BuildArch: noarch
 
+BuildRequires:  composer
+
 BuildRequires:  php-cli
 BuildRequires:  php-xml
 
