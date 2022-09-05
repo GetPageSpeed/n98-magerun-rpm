@@ -15,7 +15,7 @@ URL: https://magerun.net/
 Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
 Source1: https://www.phing.info/get/phing-2.17.4.phar
 
-BuildRequires: php-cli composer
+BuildRequires: php-cli
 
 BuildArch: noarch
 
