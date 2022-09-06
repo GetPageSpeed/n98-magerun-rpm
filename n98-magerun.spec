@@ -37,6 +37,8 @@ save hours of work time. All commands are extendable by a module API.
 
 %prep
 %autosetup
+# make dependency lowercase
+sed -i 's@mikey179/vfsStream@mikey179/vfsstream@g' composer.json
 cp -p %{SOURCE1} ./phing
 chmod +x ./phing
 # load modules from /usr/share/n98-magerun/modules:
