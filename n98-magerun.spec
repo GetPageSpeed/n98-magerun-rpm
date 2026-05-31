@@ -5,7 +5,7 @@
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
-Version: 2.3.0
+Version: 3.0.1
 Release: 1%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
@@ -58,6 +58,9 @@ PHP_COMMAND="/usr/bin/php -d phar.readonly=0" ./phing dist_clean
 %{_bindir}/%{name}
 
 %changelog
+* Sun May 31 2026 Danila Vershinin <info@getpagespeed.com> 3.0.1-1
+- release 3.0.1
+
 * Wed Sep 07 2022 Danila Vershinin <info@getpagespeed.com> 2.3.0-1
 - release 2.3.0
 
