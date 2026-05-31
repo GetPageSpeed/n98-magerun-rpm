@@ -1,63 +1,50 @@
-%global upstream_github netz98
-%global upstream_name n98-magerun
-
 # License: MIT
 # http://opensource.org/licenses/MIT
 
 Name: n98-magerun
 Version: 3.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: n98-magerun. The swiss army knife for Magento developers
 
 License: GPLv2+ and MIT and BSD
 URL: https://magerun.net/
-#Source0: https://files.magerun.net/n98-magerun-%%{version}.phar
-Source0: https://github.com/%{upstream_github}/%{upstream_name}/archive/%{version}/%{upstream_name}-%{version}.tar.gz
-Source1: https://www.phing.info/get/phing-2.17.4.phar
+Source0: https://files.magerun.net/n98-magerun-%{version}.phar
 
 BuildArch: noarch
 
-BuildRequires:  composer
-
-BuildRequires:  php-cli
-BuildRequires:  php-xml
-
-Requires:       php(language) >= 5.4
-Requires:       php-mbstring
-Requires:       php-openssl
-Requires:       php-xml
-
-# TODO: Get info from phpcompatinfo reports for 2.1.2
-
+Requires: php(language) >= 7.4
+Requires: php-mbstring
+Requires: php-openssl
+Requires: php-xml
 
 %description
 The swiss army knife for Magento developers, sysadmins and devops.
-The tool provides a huge set of well tested command line commands which 
+The tool provides a huge set of well tested command line commands which
 save hours of work time. All commands are extendable by a module API.
 
 %prep
-%autosetup
-# make dependency lowercase
-sed -i 's@mikey179/vfsStream@mikey179/vfsstream@g' composer.json
-cp -p %{SOURCE1} ./phing
-chmod +x ./phing
-# load modules from /usr/share/n98-magerun/modules:
-sed -i 's@- /usr/local/share/n98-magerun/modules@- /usr/share/n98-magerun/modules\n    - /usr/local/share/n98-magerun/modules@' config.yaml
+# Nothing to do — Source0 is the prebuilt phar.
 
 %build
-ulimit -Sn "$(ulimit -Hn)"
-PHP_COMMAND="/usr/bin/php -d phar.readonly=0" ./phing dist_clean
+# Nothing to do.
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__mkdir} -p $RPM_BUILD_ROOT%{_bindir}
-%{__install} -m 755 -p n98-magerun.phar $RPM_BUILD_ROOT%{_bindir}/%{name}
+%{__install} -m 755 -p %{SOURCE0} $RPM_BUILD_ROOT%{_bindir}/%{name}
 
 %files
 %defattr(-,root,root)
 %{_bindir}/%{name}
 
 %changelog
+* Sun May 31 2026 Danila Vershinin <info@getpagespeed.com> 3.0.1-2
+- switch back to upstream-prebuilt phar from files.magerun.net
+- upstream 3.x ships an out-of-sync composer.lock and a require-dev set that pins
+  rector ^2 / phpstan ^2 with strict PHP upper bounds, so building via composer+phing
+  no longer resolves on newer distros' PHP; the upstream-blessed phar is the artifact
+- bump Requires php(language) >= 7.4 to match upstream's actual platform req
+
 * Sun May 31 2026 Danila Vershinin <info@getpagespeed.com> 3.0.1-1
 - release 3.0.1
 
@@ -97,5 +84,3 @@ PHP_COMMAND="/usr/bin/php -d phar.readonly=0" ./phing dist_clean
 
 * Sat May 12 2018 Danila Vershinin <info@getpagespeed.com> 1.101.1-1
 - upstream version auto-updated to 1.101.1
-
-
